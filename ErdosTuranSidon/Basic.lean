@@ -15,17 +15,6 @@ is a **Sidon set** (also called a B₂ set): all pairwise sums `a + b` with
 This is a Lean 4 + Mathlib4 formalization of the classical Erdős–Turán (1941)
 construction of dense finite Sidon sets from quadratic residues modulo a prime.
 
-## Mathematical idea
-
-Elements of `E_p` look like `2pi + r_i` where `r_i = i² mod p ∈ [0, p)`.
-The "coarse" part `2pi` is separated by multiples of `2p`, while the "fine"
-part `r_i` is a quadratic residue. If `a + b = c + d` (with `a = E_p(i₁)`,
-etc.), then:
-- Comparing the `2p`-multiples forces `i₁ + i₂ = i₃ + i₄`.
-- Substituting back gives `i₁² + i₂² ≡ i₃² + i₄² (mod p)`.
-- Together: `2(i₁ - i₃)(i₃ - i₂) ≡ 0 (mod p)`.
-- Since `p` is an odd prime, one factor is `0 mod p`, forcing `i₁ = i₃` or
-  `i₂ = i₃` (within `[0,p)`), and the Sidon property follows.
 -/
 
 open Classical Finset
