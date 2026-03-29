@@ -115,14 +115,6 @@ The most delicate formalization step is the prime-field argument in Step 3, whic
 The `maxHeartbeats 800000` annotation reflects the cost of `nlinarith` bounding integer differences in absolute value; this is expected and not a sign of a fragile proof.
 
 
-## Natural extensions
-
-The results in this repo suggest several follow-on formalizations:
-
-- An explicit density statement: combining `erdosTuranSet_card` and `erdosTuranSet_bound` gives `|E_p ∩ [0, 2p²)| = p`, i.e. `|A ∩ [0, N)| ≥ (1/√2)·√N` for `N = 2p²`. Formalizing this asymptotic statement is a natural next step.
-- A `sumRepCount` bound: any Sidon set satisfies `sumRepCount A n ≤ 1` for all `n`, which follows directly from `IsSidonSet`. Connecting this to the density gives a complete answer to the question of how few representations are compatible with quadratic growth.
-- Upstream to Mathlib: Sidon sets (B₂ sets) are conspicuously absent from Mathlib's `Combinatorics.Additive` hierarchy. A PR adding `IsSidonSet` and `erdosTuranSet_sidon` would fill a real gap.
-
 ## Related work
 
 **Mathlib4** does not appear to contain a formalization of the Erdős–Turán Sidon construction or Sidon sets in general. The closest existing Mathlib content is `Mathlib.Data.ZMod.Basic` (the `ZMod` API used in the proof) and `Mathlib.Combinatorics.Additive.SalemSpencer` (Salem–Spencer/Roth theory), but Sidon sets are not covered.
@@ -133,7 +125,7 @@ The results in this repo suggest several follow-on formalizations:
 
 ## Contributing
 
-Issues and pull requests are welcome. The most impactful contribution would be a Mathlib PR upstreaming `IsSidonSet` and `erdosTuranSet_sidon` into `Mathlib.Combinatorics.Additive`.
+Issues and pull requests are welcome.
 
 ## License
 
