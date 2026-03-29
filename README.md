@@ -1,10 +1,10 @@
 # Erdős–Turán Sidon Set Construction — Lean 4 Formalization
 
-A machine-checked proof of the classical **Erdős–Turán construction of finite Sidon sets from quadratic residues**, formalized in Lean 4 with Mathlib4.
+A machine-checked proof of the classical Erdős–Turán construction of finite Sidon sets from quadratic residues, formalized in Lean 4 with Mathlib4.
 
 ## The Result
 
-A **Sidon set** (or B₂ set) is a set of natural numbers in which all pairwise sums `a + b` are distinct — equivalently, the equation `a + b = c + d` has no solutions with `{a, b} ≠ {c, d}` as multisets.
+A Sidon set (or B₂ set) is a set of natural numbers in which all pairwise sums `a + b` are distinct — equivalently, the equation `a + b = c + d` has no solutions with `{a, b} ≠ {c, d}` as multisets.
 
 The central theorem of this repository is:
 
@@ -18,7 +18,7 @@ This formalizes the algebraic construction introduced by Erdős and Turán in th
 
 ## Why is this interesting?
 
-Constructing dense Sidon sets is a genuinely hard problem. The trivial double-counting upper bound gives `|A ∩ [1,N]| ≤ (1 + o(1))√N`; achieving this up to constants requires real algebraic input. The Erdős–Turán construction is the canonical example, using quadratic residues modulo a prime to spread elements so that sums cannot collide. The result is a standard reference in additive combinatorics (Tao–Vu, O'Bryant's bibliography), yet no Lean 4 formalization appears to exist in Mathlib as of this writing.
+Constructing dense Sidon sets is a hard problem. The double-counting upper bound gives `|A ∩ [1,N]| ≤ (1 + o(1))√N`; achieving this up to constants requires real algebraic input. The Erdős–Turán construction is the canonical example, using quadratic residues modulo a prime to spread elements so that sums cannot collide. The result is a standard reference in additive combinatorics (Tao–Vu, O'Bryant's bibliography), yet no Lean 4 formalization appears to exist in Mathlib as of this writing.
 
 The proof is also non-trivial to machine-check: it requires reasoning simultaneously about natural number arithmetic, integer congruences (`ZMod`), and Mathlib's prime API, with a case analysis on divisibility by an odd prime.
 
@@ -114,15 +114,6 @@ The most delicate formalization step is the prime-field argument in Step 3, whic
 
 The `maxHeartbeats 800000` annotation reflects the cost of `nlinarith` bounding integer differences in absolute value; this is expected and not a sign of a fragile proof.
 
-## What this does not include
-
-This repository is intentionally minimal: only the Erdős–Turán construction, nothing else. In particular:
-
-- No claim about infinite Sidon sets or asymptotic density.
-- No connection to the Erdős–Turán conjecture about the greedy Sidon sequence.
-- No B₂[g] theory, Singer difference sets, or probabilistic constructions.
-
-Those are deep results in their own right. The goal here is to isolate the algebraic core cleanly.
 
 ## Natural extensions
 
