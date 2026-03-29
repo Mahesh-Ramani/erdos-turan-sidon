@@ -10,7 +10,7 @@ The central theorem of this repository is:
 
 > **Theorem** (`erdosTuranSet_sidon`). For every prime `p ≥ 3`, the set
 >
-> $$E_p = \bigl\{\ 2pi + (i^2 \bmod p)\ \bigm|\ 0 \le i < p\ \bigr\}$$
+> $$E_p = \{ \, 2pi + (i^2 \bmod p) \mid 0 \le i < p \, \}$$
 >
 > is a Sidon set of size `p` contained in `[0, 2p²)`.
 
@@ -34,11 +34,11 @@ since the residues `rᵢ` are bounded in `[0, p)` and cannot compensate a full m
 
 **Step 2 — Quadratic congruence.** Substituting back, the residue parts satisfy:
 
-$$i_1^2 + i_2^2 \equiv i_3^2 + i_4^2 \pmod{p}$$
+$$i_1^2 + i_2^2 \equiv i_3^2 + i_4^2 \quad (\bmod\ p)$$
 
 Combined with Step 1, this rewrites (setting `i₄ = i₁ + i₂ - i₃`) to:
 
-$$2(i_1 - i_3)(i_3 - i_2) \equiv 0 \pmod{p}$$
+$$2(i_1 - i_3)(i_3 - i_2) \equiv 0 \quad (\bmod\ p)$$
 
 **Step 3 — Prime field.** Since `p` is an odd prime, `ℤ/pℤ` is a field. So one factor is zero mod `p`. Since all indices lie in `[0, p)`, their differences have absolute value `< p`, so "zero mod p" means literally zero. This gives `i₁ = i₃` or `i₂ = i₃`, and in either case `{i₁, i₂} = {i₃, i₄}`, hence `{a, b} = {c, d}`.
 
@@ -55,14 +55,15 @@ erdos-turan-sidon/
 └── README.md
 ```
 
-The entire formalization lives in `ErdosTuranSidon/Basic.lean`.
+The entire formalization lives in `ErdosTuranSidon/Basic.lean`. There are no auxiliary files and no `sorry`.
+
 ## Building
 
 **Prerequisites:** [elan](https://github.com/leanprover/elan) (the Lean version manager) and an internet connection for Mathlib's cache.
 
 ```bash
 # Clone
-git clone https://github.com/Mahesh-Ramani/erdos-turan-sidon
+git clone https://github.com/YOUR_USERNAME/erdos-turan-sidon
 cd erdos-turan-sidon
 
 # Download prebuilt Mathlib cache (saves hours of compilation)
@@ -113,6 +114,15 @@ The most delicate formalization step is the prime-field argument in Step 3, whic
 
 The `maxHeartbeats 800000` annotation reflects the cost of `nlinarith` bounding integer differences in absolute value; this is expected and not a sign of a fragile proof.
 
+## What this does not include
+
+This repository is intentionally minimal: only the Erdős–Turán construction, nothing else. In particular:
+
+- No claim about infinite Sidon sets or asymptotic density.
+- No connection to the Erdős–Turán conjecture about the greedy Sidon sequence.
+- No B₂[g] theory, Singer difference sets, or probabilistic constructions.
+
+Those are deep results in their own right. The goal here is to isolate the algebraic core cleanly.
 
 ## Natural extensions
 
@@ -132,7 +142,7 @@ The results in this repo suggest several follow-on formalizations:
 
 ## Contributing
 
-Issues and pull requests are welcome.`.
+Issues and pull requests are welcome. The most impactful contribution would be a Mathlib PR upstreaming `IsSidonSet` and `erdosTuranSet_sidon` into `Mathlib.Combinatorics.Additive`.
 
 ## License
 
