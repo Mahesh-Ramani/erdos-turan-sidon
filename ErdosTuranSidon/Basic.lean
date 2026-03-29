@@ -9,7 +9,7 @@ For any prime `p ≥ 3`, the set
 
     E_p = { 2pi + (i² mod p) : 0 ≤ i < p }
 
-is a **Sidon set** (also called a B₂ set): all pairwise sums `a + b` with
+is a Sidon set (also called a B₂ set): all pairwise sums `a + b` with
 `a, b ∈ E_p` are distinct.
 
 This is a Lean 4 + Mathlib4 formalization of the classical Erdős–Turán (1941)
